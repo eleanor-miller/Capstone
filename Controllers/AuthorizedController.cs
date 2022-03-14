@@ -1,7 +1,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SampleApp.Controllers
+namespace Capstone.Controllers
 {
     public abstract class AuthorizedController : ControllerBase
     {
