@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Capstone.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Capstone.Controllers
 {
