@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Capstone.Models
@@ -13,8 +14,10 @@ namespace Capstone.Models
         // Change this to true if you want to have logging of SQL statements in development
         private static bool LOG_SQL_STATEMENTS_IN_DEVELOPMENT = false;
 
-        // Add database tables here
+        // Tell the context about the Project collection/table
         public DbSet<Project> Projects { get; set; }
+
+        // Tell the context about the User collection/table
         public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
