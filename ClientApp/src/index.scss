@@ -90,13 +90,6 @@ nav li a:hover {
   }
 }
 
-.SlMenu {
-  float: right;
-  margin: 15px;
-  overflow: hidden;
-  text-align: center;
-}
-
 // Footer
 footer {
   text-align: center;
@@ -105,8 +98,4 @@ footer {
 main {
   flex: 1;
   margin: 50px;
-}
-
-.SlIcon-heart {
-  color: var(--princeton-orange);
 }

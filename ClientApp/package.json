@@ -17,6 +17,9 @@
     "useTabs": false
   },
   "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.0",
     "@shoelace-style/shoelace": "^2.0.0-beta.71",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
