@@ -21,7 +21,7 @@ function Copyright(props: any) {
       {...props}
     >
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="#">
         Wip Stitch
       </Link>{' '}
       {new Date().getFullYear()}
@@ -75,14 +75,16 @@ export default function SignIn() {
   return (
     <ThemeProvider theme={theme}>
       <header className="sign-up">
-        <img src={logo} alt="Wip Stitch" height={150} width={150} />
-        <h1>Wip Stitch</h1>
+        <h2>
+          <img src={logo} alt="Wip Stitch" height={100} width={100} /> <br />
+          Wip Stitch
+        </h2>
       </header>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 4,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -142,7 +144,7 @@ export default function SignIn() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Copyright sx={{ mt: 4, mb: 2 }} />
       </Container>
     </ThemeProvider>
   )

@@ -64,9 +64,7 @@ export function App() {
           </nav>
         </div>
       </header>
-
       {/* Test different pages and components here before creating files. */}
-
       <main className="home">
         {/*<h1>
           <img src={logo} alt="Wip Stitch" height={50} width={50} />
@@ -103,9 +101,8 @@ export function App() {
             </p>
           </li>
   </ul> */}
-        <SignIn />
+        <SignUp />
       </main>
-
       <footer>
         <ThemeProvider theme={theme}>
           <p>
