@@ -8,6 +8,7 @@ setBasePath(
   'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.71/dist/'
 )
 
+import { SlIcon } from '@shoelace-style/shoelace/dist/react'
 export function App() {
   return (
     <>
@@ -64,7 +65,15 @@ export function App() {
       </main>
 
       <footer>
-        <p>Made with heart in Tampa, Florida.</p>
+        <p>
+          Made with{' '}
+          <SlIcon
+            className="SlIcon-heart"
+            name="suit-heart-fill"
+            label="love"
+          />{' '}
+          in Tampa, Florida.
+        </p>
       </footer>
     </>
   )

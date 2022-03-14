@@ -1,15 +1,20 @@
 :root {
   font: 16px / 1 sans-serif;
 
-  // SDG brand colors
-  --asphalt: #2f3737;
-  --bright-sky: #80ced2;
-  --lime: #b1d133;
-  --night-sky: #85577e;
-  --sand: #f7f0da;
-  --sea: #5a9090;
-  --sun: #d5562b;
-  --tangerine: #f99d1b;
+  // Wip Stitch brand colors
+  --smoky-black: #110803;
+  --white: #fff;
+  --princeton-orange: #ff7f23;
+  --burnt-orange: #b65721;
+  --blue-sapphire: #0b4b6c;
+  --pale-cerulean: #a5c4d4;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
 }
 
 html {
@@ -19,4 +24,29 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+}
+
+a,
+a:visited {
+  color: var(--smoky-black);
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  color: var(--princeton-orange);
+  text-decoration: none;
+  font-size: 150%;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+main {
+  flex: 1;
+}
+
+.SlIcon-heart {
+  color: var(--princeton-orange);
 }
