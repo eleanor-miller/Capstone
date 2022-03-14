@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
 namespace Capstone.Models
@@ -34,6 +34,11 @@ namespace Capstone.Models
 
                 optionsBuilder.UseNpgsql(conn);
             }
+        }
+
+        internal Task SaveChangesAsync()
+        {
+            throw new NotImplementedException();
         }
 
         private string ConvertPostConnectionToConnectionString(string connection)
