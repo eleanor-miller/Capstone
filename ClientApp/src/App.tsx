@@ -1,27 +1,31 @@
 import React from 'react'
 import logo from '/src/logo.svg'
 
-import '@shoelace-style/shoelace/dist/themes/light.css'
-import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path'
-
-setBasePath(
-  'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.71/dist/'
-)
-
-import { SlIcon } from '@shoelace-style/shoelace/dist/react'
 export function App() {
   return (
     <>
       <header>
-        <ul>
-          <li>
-            <nav>
-              <a href="#">New Project</a>
-              <p>Hi, Eleanor!</p>
-            </nav>
-          </li>
-          <li></li>
-        </ul>
+        <div>
+          <a href="#">
+            <img
+              className="logo"
+              src={logo}
+              alt="Wip Stitch"
+              height={50}
+              width={50}
+            />
+          </a>
+          <nav>
+            <ul>
+              <li>
+                <p>Hi, Eleanor!</p>
+              </li>
+              <li>
+                <a href="#">New Project</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </header>
 
       {/* Test different pages and components here before creating files. */}
@@ -65,15 +69,7 @@ export function App() {
       </main>
 
       <footer>
-        <p>
-          Made with{' '}
-          <SlIcon
-            className="SlIcon-heart"
-            name="suit-heart-fill"
-            label="love"
-          />{' '}
-          in Tampa, Florida.
-        </p>
+        <p>Made with HEART in Tampa, Florida.</p>
       </footer>
     </>
   )
