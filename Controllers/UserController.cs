@@ -29,7 +29,7 @@ namespace Capstone.Controllers
         [HttpPost("{email}")]
         public async Task<ActionResult<User>> CreateUser(string email, string password)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(email => email.Email == email);
+            var user = await _context.Users.FirstOrDefaultAsync(e => e.Email == email);
             if (user == null) return NotFound();
             if (user.Password != password) return Unauthorized();
             return user;

@@ -14,7 +14,8 @@ namespace Capstone.Models
         private static bool LOG_SQL_STATEMENTS_IN_DEVELOPMENT = false;
 
         // Add database tables here
-
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
