@@ -1,11 +1,31 @@
 import React from 'react'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
+import Home from './pages/Home'
 import logo from '/src/logo.svg'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-
+import { Typography } from '@mui/material'
+import Link from '@mui/material/Link'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+
+function Copyright(props: any) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {'Copyright © '}
+      <Link color="inherit" href="#">
+        Wip Stitch
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  )
+}
 
 const theme = createTheme({
   palette: {
@@ -64,47 +84,10 @@ export function App() {
           </nav>
         </div>
       </header>
-      {/* Test different pages and components here before creating files. */}
-      <main className="home">
-        {/*<h1>
-          <img src={logo} alt="Wip Stitch" height={50} width={50} />
-        </h1>
-        <form className="search">
-          <input type="text" placeholder="Search..." />
-        </form>
-        <ul className="results">
-          <li>
-            <h3>Sweater</h3>
-            <p>
-              <b>Started: </b>01/01/2022
-            </p>
-            <p>
-              <b>Type: </b>Knit
-            </p>
-          </li>
-          <li>
-            <h3>Socks</h3>
-            <p>
-              <b>Started: </b>02/02/2022
-            </p>
-            <p>
-              <b>Type: </b>Knit
-            </p>
-          </li>
-          <li>
-            <h3>Blanket</h3>
-            <p>
-              <b>Started: </b>03/03/2022
-            </p>
-            <p>
-              <b>Type: </b>Crochet
-            </p>
-          </li>
-  </ul> */}
-        <SignUp />
-      </main>
+      <Home />
       <footer>
         <ThemeProvider theme={theme}>
+          <Copyright sx={{ mt: 4, mb: 2 }} />
           <p>
             Made with <FavoriteIcon color="primary" /> in Tampa, Florida.
           </p>
