@@ -7,7 +7,7 @@ using Capstone.Models;
 namespace Capstone.Controllers
 {
     [ApiController]
-    [Route("/project")]
+    [Route("/api/Projects")]
     public class ProjectsController : ControllerBase
     {
         private readonly DatabaseContext _context;
@@ -19,23 +19,16 @@ namespace Capstone.Controllers
 
         // Get all Projects
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Project>>> GetProjects(string filter)
+        public async Task<ActionResult<IEnumerable<Project>>> GetProjects(string Title)
         {
-            if (filter == null)
-            {
-                return await _context.Projects.OrderBy(project => project.Id).ToListAsync();
-            }
-            else
-            {
-                return await _context.Projects.OrderBy(ProjectsController => project.Id).Where(ProjectsController => project.Title.Contains(filter)).ToListAsync();
-            }
+            return await _context.Projects.ToListAsync();
         }
 
         // Get Project by Title
         [HttpGet("{Title}")]
         public async Task<ActionResult<Project>> GetProject(string Title)
         {
-            var project = await _context.Projects.Where(project => project.Title == Title).FirstOrDefaultAsync();
+            var project = await _context.Projects.FirstOrDefaultAsync();
 
             if (project == null)
             {
@@ -53,26 +46,12 @@ namespace Capstone.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(project).State = EntityState.Modified;
-
-            try
+            await _context.SaveChangesAsync();
             {
-                await _context.SaveChangesAsync();
+                return Ok(project);
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProjectExists(Title))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return Ok(project);
         }
+
 
         // Create Project
         [HttpPost]
