@@ -1,31 +1,18 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useParams,
+} from 'react-router-dom'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
+import Project from './pages/Project'
 import Home from './pages/Home'
 import logo from '/src/logo.svg'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import { Typography } from '@mui/material'
-import Link from '@mui/material/Link'
-import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {'Copyright © '}
-      <Link color="inherit" href="#">
-        Wip Stitch
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
 
 const theme = createTheme({
   palette: {
@@ -61,38 +48,47 @@ const theme = createTheme({
 export function App() {
   return (
     <>
-      <header>
-        <div>
-          <a href="#">
-            <img
-              className="logo"
-              src={logo}
-              alt="Wip Stitch"
-              height={50}
-              width={50}
-            />
-          </a>
-          <nav>
-            <ul>
-              <li>
-                <p>Hi, Eleanor!</p>
-              </li>
-              <li>
-                <a href="#">Sign In</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-      <Home />
-      <footer>
-        <ThemeProvider theme={theme}>
-          <Copyright sx={{ mt: 4, mb: 2 }} />
-          <p>
-            Made with <FavoriteIcon color="primary" /> in Tampa, Florida.
-          </p>
-        </ThemeProvider>
-      </footer>
+      <Router>
+        <header>
+          <div>
+            <a href="/Home">
+              <img
+                className="logo"
+                src={logo}
+                alt="Wip Stitch"
+                height={50}
+                width={50}
+              />
+            </a>
+            <nav>
+              <ul>
+                <li>
+                  <p>Hi, Eleanor!</p>
+                </li>
+                <li>
+                  <a href="/SignIn">Sign In</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <Routes>
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route
+            path="/SignIn"
+            element={<SignIn user={user} setUser={setUser} />}
+          />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Project" element={<Project />} />
+        </Routes>
+        <footer className="footer">
+          <ThemeProvider theme={theme}>
+            <p>
+              Made with <FavoriteIcon color="primary" /> in Tampa, Florida.
+            </p>
+          </ThemeProvider>
+        </footer>
+      </Router>
     </>
   )
 }
