@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,6 +11,7 @@ import SignIn from './pages/SignIn'
 import Project from './pages/Project'
 import Home from './pages/Home'
 import logo from '/src/logo.svg'
+import { User } from './Types'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
@@ -46,6 +47,8 @@ const theme = createTheme({
 })
 
 export function App() {
+  const [user, setUser] = useState<User | null>(null)
+
   return (
     <>
       <Router>
@@ -63,7 +66,9 @@ export function App() {
             <nav>
               <ul>
                 <li>
-                  <p>Hi, Eleanor!</p>
+                  <p>
+                    Hi, currentUser={user} setUser={setUser}!
+                  </p>
                 </li>
                 <li>
                   <a href="/SignIn">Sign In</a>
@@ -79,6 +84,7 @@ export function App() {
             element={<SignIn user={user} setUser={setUser} />}
           />
           <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Home" element={<Home />} />
           <Route path="/Project" element={<Project />} />
         </Routes>
         <footer className="footer">

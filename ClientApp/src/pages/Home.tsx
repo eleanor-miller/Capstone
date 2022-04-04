@@ -1,6 +1,5 @@
 import * as React from 'react'
-import logo from '/src/logo.svg'
-import Card from '../components/Card'
+import { useQuery } from 'react-query'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -12,6 +11,9 @@ import LockSharpIcon from '@mui/icons-material/LockSharp'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import logo from '/src/logo.svg'
+import Card from '../components/Card'
+import { Project } from '../Types'
 
 const theme = createTheme({
   palette: {
@@ -45,14 +47,30 @@ const theme = createTheme({
 })
 
 export default function Home() {
+  const { data: projects = [] } = useQuery<Project[]>(
+    'projects',
+    async function () {
+      const response = await fetch('/Project')
+      return response.json()
+    }
+  )
+
   return (
     <ThemeProvider theme={theme}>
       <header className="sign-up">
         <h2>Home</h2>
       </header>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Card />
+        <form className="search">
+          <input type="text" placeholder="Search..." />
+        </form>
+
+        <ul className="results">
+          <li>
+            <h2>Project Name</h2>
+            <p>Project Start Date</p>
+          </li>
+        </ul>
       </Container>
     </ThemeProvider>
   )
