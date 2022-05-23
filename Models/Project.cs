@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Capstone.Models
 {
     public class Project
@@ -11,6 +13,9 @@ namespace Capstone.Models
         public string Dyelot { get; set; }
         public bool Favorite { get; set; }
         public string Notes { get; set; }
+
+        // one user has many projects, projects have one user
+        public List<User> User { get; set; }
     }
 
 }

@@ -79,10 +79,7 @@ export function App() {
         </header>
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
-          <Route
-            path="/SignIn"
-            element={<SignIn user={user} setUser={setUser} />}
-          />
+          <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/Project" element={<Project />} />
