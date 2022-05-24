@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
@@ -39,6 +40,8 @@ namespace Capstone.Models
             // Return True if the verification was a success
             return passwordVerification == PasswordVerificationResult.Success;
         }
+
+        public List<Project> Project { get; set; }
     }
 
 }
